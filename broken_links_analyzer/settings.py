@@ -112,6 +112,7 @@ ROOT_URLCONF = 'broken_links_analyzer.urls'
 WSGI_APPLICATION = 'broken_links_analyzer.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.dirname(__file__) + "/templastes"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

@@ -2,7 +2,9 @@ from django.conf.urls import patterns, include, url
 from front import views
 
 urlpatterns = patterns('',
-	url(r'^$', views.index, name='index')
+	url(r'^$', views.index, name='index'),
+	url(r'^/process$', views.process),
+	url(r'/get_links$', views.get_links)
     # Examples:
     # url(r'^$', 'broken_links_analyzer.views.home', name='home'),
     # url(r'^broken_links_analyzer/', include('broken_links_analyzer.foo.urls')),
