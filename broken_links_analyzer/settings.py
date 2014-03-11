@@ -1,3 +1,6 @@
+import os
+BASE_DIR = os.path.abspath(os.path.dirname(__file__)) + os.sep
+
 # Django settings for broken_links_analyzer project.
 
 DEBUG = True
@@ -103,6 +106,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'broken_links_analyzer.urls'
+#ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'broken_links_analyzer.wsgi.application'
