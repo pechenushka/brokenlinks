@@ -1,11 +1,8 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from front import views
 
 urlpatterns = patterns('',
-	url(r'^.*$', include('front.urls'))
+	url(r'^$', views.index, name='index')
     # Examples:
     # url(r'^$', 'broken_links_analyzer.views.home', name='home'),
     # url(r'^broken_links_analyzer/', include('broken_links_analyzer.foo.urls')),
