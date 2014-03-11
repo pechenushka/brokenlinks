@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 
 
 def index(request):
-    return HttpResponse('Hello World !')
+    return render_to_response('front/index.html')
 
 
 def process(request):
