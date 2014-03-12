@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="span10 offset4">
+            <form action="/process" method="POST" class="form-inline">{% csrf_token %}
+                <fieldset>
+                    <table>
+                        <tr>
+                            <td><label for="">Протокол</label></td>
+                            <td style="padding-left: 20px;"><label for="">Вид</label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="protocol" id="protocol_select" style="width: 100px">
+                                    <option value="http">http</option>
+                                    <option value="https">https</option>
+                                </select>
+                            </td>
+                            <td style="padding-left: 20px;">
+                                <select name="links_view" id="" style="width: 100px">
+                                    <option value="list">Список</option>
+                                    <option value="graph">Граф</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inlineCheckboxes">Типы ресурсов</label>
+
+                        <div class="controls">
+                            <label class="checkbox inline">
+                                <input name="resource_types[]" type="checkbox" id="resource_a_cb" value="a"> a
+                            </label>
+                            <label class="checkbox inline">
+                                <input name="resource_types[]" type="checkbox" id="resource_script_cb" value="script">
+                                script
+                            </label>
+                            <label class="checkbox inline">
+                                <input name="resource_types[]" type="checkbox" id="resource_img_cb" value="img"> img
+                            </label>
+                        </div>
+                    </div>
+
+                    <label>Введите адрес сайта</label><br>
+
+                    <div class="input-prepend">
+                        <span class="add-on" id="url_prepend_text">http://</span>
+                        <input class="input" type="text" name="site_url" placeholder="www.google.ru"/>
+                    </div>
+
+                    <br/><br/>
+                    <button class="btn btn-info btn-large" type="submit">Analyze !</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#protocol_select").on('change', function () {
+                $("#url_prepend_text").html($(this).val() + "://");
+            });
+        });
+    </script>
+{% endblock %}

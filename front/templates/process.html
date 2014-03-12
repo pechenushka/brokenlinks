@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+    <div class="offset2">
+        <h2>Try to parse "<a target="_blank" href="{{ site_url }} %}">{{ site_url }}</a>":</h2>
+        <ul id="links"></ul>
+        <div id="loader">
+            <div class="row">
+                <div class="span4 offset3">
+                    <img src="{% static "img/loader.gif" %}">
+                </div>
+            </div>
+        </div>
+        <a id="button_back" class="btn btn-success" href="/">Назад</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script id="link_el_template" type="text/x-jquery-tmpl">
+    <li>Status: <span style="color: ${color}">${status}</span>, Type: ${type}, <b>${content}</b> (<a target="_blank" href="${href}">${href}</a>)</li>
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var links = new Links({
+                url: "{{ site_url }}",
+                resource_types: '{{ resource_types }}'
+            });
+            links.get_links();
+        });
+    </script>
+{% endblock %}

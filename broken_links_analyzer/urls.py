@@ -5,7 +5,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^.*$', include('front.urls'))
+    url(r'^', include('front.urls'))
+
     # Examples:
     # url(r'^$', 'broken_links_analyzer.views.home', name='home'),
     # url(r'^broken_links_analyzer/', include('broken_links_analyzer.foo.urls')),
