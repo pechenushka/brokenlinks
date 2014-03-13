@@ -3,8 +3,8 @@ from front import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
-    url(r'^process$', views.process, name='process'),
-    url(r'^get_links$', views.get_links, name='get_links')
+    url(r'^process/$', views.process, name='process'),
+    url(r'^get_links/$', views.get_links, name='get_links')
 
     # Examples:
     # url(r'^$', 'broken_links_analyzer.views.home', name='home'),

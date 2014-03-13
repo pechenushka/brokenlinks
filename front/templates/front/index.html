@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="span10 offset4">
-            <form action="/process" method="POST" class="form-inline">{% csrf_token %}
+            <form action="{% url 'process' %}" method="POST" class="form-inline">{% csrf_token %}
                 <fieldset>
                     <table>
                         <tr>
